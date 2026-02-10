@@ -10,7 +10,7 @@ st.markdown("""
     <style>
     .main { background-color: #0E1117; }
     h1 { color: #FF007A; text-align: center; }
-    .stButton>button { background: linear-gradient(45deg, #FF007A, #8A2BE2); color: white; border-radius: 10px; width: 100%; }
+    .stButton>button { background: linear-gradient(45deg, #FF007A, #8A2BE2); color: white; border-radius: 10px; width: 100%; height: 50px; font-size: 18px; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -28,7 +28,7 @@ st.write("World's best Rizz expert & Coach.")
 tab1, tab2 = st.tabs(["📝 Text", "📸 Screenshot"])
 
 with tab1:
-    chat_text = st.text_area("Paste messages here:")
+    chat_text = st.text_area("Paste messages here:", placeholder="Example: Hi, how are you?")
 
 with tab2:
     uploaded_file = st.file_uploader("Upload screenshot", type=["jpg", "png", "jpeg"])
@@ -42,8 +42,8 @@ if st.button("Generate Rizz ✨"):
     else:
         try:
             genai.configure(api_key=api_key)
-            # আপডেট করা মডেলের নাম
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            # আপডেট করা মডেলের নাম যা নিশ্চিতভাবে কাজ করবে
+            model = genai.GenerativeModel('gemini-1.5-flash-latest')
             
             prompt = "You are a Rizz expert. Analyze this chat and give 3 witty, romantic, or bold replies in the same language as input (Bengali/Hindi/English)."
             
@@ -57,4 +57,3 @@ if st.button("Generate Rizz ✨"):
                 st.write(response.text)
         except Exception as e:
             st.error(f"Error: {e}")
-          
