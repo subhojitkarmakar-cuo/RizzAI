@@ -57,7 +57,7 @@ st.markdown("<p style='text-align: center; color: #BBB;'>The world's best relati
 def get_rizz_response(api_key, text_input, image_input=None):
     genai.configure(api_key=api_key)
     # Using gemini-1.5-flash for speed and multimodal capabilities
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')
     
     system_role = (
         "You are the world's best relationship coach and Rizz expert. Your task is to analyze "
